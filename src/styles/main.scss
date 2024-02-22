@@ -1,0 +1,347 @@
+@import "./_variables";
+
+[data-theme ="light"] {
+
+ --bg-color: #ffffff;
+ --text-color:#333333;
+ --active-color:#ffffff;
+}
+
+[data-theme ="dark"] {
+    --bg-color: #333333;
+    --text-color:#ffffff;
+    --liactive-color: #f2f2f2;
+    --active-color:#333333;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    font-family: $fontFamily;
+    background-color: var(--bg-color);
+    text-transform: capitalize;
+}
+
+h1 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    background-color: var(--text-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.8rem 0.8rem;
+    width: 14rem;
+    height: 100vh;
+   transition: 0.5s all;
+    opacity: 0.9;
+    border-radius: 2rem;
+
+    .logoContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+           
+        h2.title {
+            font-size: 31.42px;
+            color: var(--bg-color);
+            padding: 0 0 0 1rem;
+        }
+        .logo{
+            height: 3rem;
+            width: 3rem;
+            color: var(--bg-color);
+        }
+    }
+
+    .burgerContainer {
+        content: "";
+        background-color: var(--bg-color);
+        position: absolute;
+        right: (-35px / 2);
+        top: calc(7rem / 1.15);
+        width: 35px;
+        height: 35px;
+        border-radius: 2rem;
+        z-index: 1;
+
+        .burgerTrigger {
+            content: "";
+            width: 35px;
+            height: 35px;
+            background-color: red;
+            cursor: pointer;
+            z-index: 6;
+            opacity: 0;
+            position: relative;
+        }
+
+        .burgerMenu {
+            content: "";
+            background-color: var(--bg-color);
+            position: relative;
+            z-index: 1;
+            width: 20px;
+            height: 3px;
+            border-radius: 2rem;
+            bottom: calc(35px / 2);
+            left: 0.45rem;
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::after {
+            content: "";
+            background-color:var(--text-color);
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            border-radius: 2rem;
+            top: 0.4rem;
+            transform: translateY(-0.4rem) rotate(45deg);
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::before {
+            content: "";
+            background-color: var(--text-color);
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            border-radius: 2rem;
+            top: -0.4rem;
+            transform: translateY(0.4rem) rotate(-45deg);
+            transition: 0.5s all;
+        }
+    }
+
+    // .burgerContainer::after {
+    //     content: "";
+    //     position: absolute;
+    //     right: 35px;
+    //     top: (35px / 2);
+    //     z-index: 0;
+    //     width: calc(6rem + 15rem);
+    //     background-color: $lightGrey;
+    //     height: px;
+    //     transition: 0.5s all;
+    // }
+
+    .profileContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1.8rem 0 0 0;
+       
+        img {
+            width: auto;
+            height: 3rem;
+        
+        }
+
+        .profileContents {
+            padding: 0 0 0 0.7rem;
+
+            p.name {
+                padding: 0;
+                margin: 0;
+                font-size: 16.7px;
+                color: var(--bg-color);
+                text-transform: capitalize;
+                font-weight: $heavyFont;
+                transition: 0.2s all;
+
+                
+            }
+            p {
+                padding: 0;
+                margin: 0;
+                font-size: 13.9px;
+                color: var(--bg-color);
+                text-transform: lowercase;
+                transition: 0.2s all;
+
+            }
+        }
+    }
+
+    .contentsContainer {
+        margin: 0.7rem 0 0 0;
+
+        ul {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: column;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+                margin: 0.65rem 0;
+                padding: 0.65rem 0;
+                width: 100%;
+                border-radius: 1rem;
+                cursor: pointer;
+
+                img {
+                    padding: 0 1rem 0 0.5rem;
+                }
+
+                a{
+                    text-decoration: none;
+                    color: var(--bg-color);
+                    font-size: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 0 0 0 0.5rem;
+                    transition: 0.2s all;
+                }
+
+                .icon{
+                 
+                    color:gray;
+                    width: 3rem;
+                    height: 2rem;
+                    position: relative;
+                    
+                }
+            }
+
+            li.active {
+                background-color: var(--bg-color);
+
+                a {
+                    color: var(--text-color);
+                }
+                .icon{
+                    color: gray;
+                }
+            }
+
+            li:hover {
+                background-color: var(--bg-color);
+                transition: 0.25s;
+               
+                a{
+                    color: var(--text-color);
+                }
+                .icon{
+                    color: var(--text-color);
+                }
+            }
+            .mode-switch label {
+                display: inline-block;
+                width: 30px;
+                height: 20px;
+                position: relative;
+                margin: 1.5rem 0;
+                padding: 0 1rem 0 0.1rem;
+              }
+              
+              .mode-switch .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 20px;
+              }
+              
+              .mode-switch input:checked + .slider {
+                background-color: #333333;
+              }
+              
+              .mode-switch .slider:before {
+                position: absolute;
+                content: "";
+                height: 16px;
+                width: 16px;
+                left: 2px;
+                bottom: 2px;
+                background-color: var(--text-color);
+                transition: 0.4s;
+                border-radius: 50%;
+              }
+              
+              .mode-switch input:checked + .slider:before {
+                transform: translateX(23px);
+              }
+        }
+    }
+}
+
+.sidebar.active {
+    width: 3rem;
+    transition: 0.5s all;
+
+    .logoContainer.active {
+        h2.title {
+            opacity: 0;
+        }
+        .logo{
+            position: absolute;
+        }
+
+    }
+
+    .burgerContainer.active {
+        transition: 0.5s all;
+        .burgerMenu {
+            background-color:var(--text-color);
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::before {
+            transform: translateY(0rem) rotate(0deg);
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::after {
+            transform: translateY(0rem) rotate(0deg);
+            transition: 0.5s all;
+        }
+    }
+
+    .profileContainer {
+        .profileContents {
+            opacity: 0;
+        }
+    }
+
+    .contentsContainer {
+        a {
+            opacity: 0;
+        }
+        ul{
+        li {
+            opacity: 1; /* Set the default opacity for li elements */
+            .icon {
+              
+                color:gray; 
+                opacity: 1; 
+                position:absolute;
+            
+            }
+        }
+        li:hover{
+            .icon{
+                color: var(--text-color);
+            }
+        }
+    }
+    }
+}
